@@ -22,3 +22,9 @@ extension String: MarkdownRenderable {
         return self
     }
 }
+
+extension Double: MarkdownRenderable {
+    public func renderMarkdown() -> String {
+        return self.description
+    }
+}

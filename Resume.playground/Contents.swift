@@ -19,6 +19,7 @@ let uiuc = Education(
     major: "Computer Engineering",
     minor: "Business",
     graduationDate: { NSDateComponents(month: 6, year: 2006).date! }(),
+    gpa: 3.92,
     notables: []
 )
 
@@ -30,8 +31,20 @@ let ctc = WorkExperience(
     startDate: { NSDateComponents(month: 7, year: 2006).date! }(),
     endDate: { NSDateComponents(month: 3, year: 2009).date! }(),
     notables: [
-        "GPU",
-        "Interest"
+        "Designed and developed GPGPU interest rate model for a new relative value trade. (Matlab, C, C#)",
+        "Lead financial engineering for interest rate products."
+    ]
+)
+
+let blackEdge = WorkExperience(
+    companyName: "Black Edge Capital",
+    title: "Cofounder",
+    startDate: { NSDateComponents(month: 3, year: 2009).date! }(),
+    endDate: { NSDateComponents(month: 3, year: 2011).date! }(),
+    notables: [
+        "Designed and developed risk and trading software. (Matlab, C#)",
+        "Grew company to 13 employees",
+        "Best Year: $9M in profit. ~1800% Return on Capital"
     ]
 )
 
@@ -51,19 +64,20 @@ let resume = Resume(
     sections: [
         ResumeSection(title: "Scott Hoyt", body: bio),
         ResumeSection(title: "Education", body: uiuc),
-        ResumeSection(title: "Work Experience", body: [ctc]),
+        ResumeSection(title: "Work Experience", body: [ctc, blackEdge]),
         ResumeSection(title: "Interests", body: interests)
     ]
 )
 
 let markdown = resume.renderMarkdown()
+print(markdown)
 
 //: # Output
 
 //: ## Markdown
-NSBundle.mainBundle()
-try markdown.writeToFile("Resume.md", atomically: true, encoding: NSUTF8StringEncoding)
-
+//NSBundle.mainBundle()
+//try markdown.writeToFile("Resume.md", atomically: true, encoding: NSUTF8StringEncoding)
+//
 var markdownRenderer = Markdown()
 let html = markdownRenderer.transform(resume.renderMarkdown())
 let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1024))
