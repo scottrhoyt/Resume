@@ -1,4 +1,7 @@
-import Foundation
+import WebKit
+import XCPlayground
+
+//: # Resume
 
 //: ## Bio
 
@@ -53,5 +56,16 @@ let resume = Resume(
     ]
 )
 
-print(resume.renderMarkDown())
+let markdown = resume.renderMarkDown()
 
+//: # Output
+
+//: ## Markdown
+NSBundle.mainBundle()
+try markdown.writeToFile("Resume.md", atomically: true, encoding: NSUTF8StringEncoding)
+
+var markdownRenderer = Markdown()
+let html = markdownRenderer.transform(resume.renderMarkDown())
+let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1024))
+webView.loadHTMLString(html, baseURL: nil)
+XCPlaygroundPage.currentPage.liveView = webView
