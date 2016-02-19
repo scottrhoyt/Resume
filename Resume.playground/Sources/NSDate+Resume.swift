@@ -1,8 +1,8 @@
 import Foundation
 
-extension NSDate: MarkDownRenderable {
+extension NSDate: MarkdownRenderable {
     
-    public func renderMarkDown() -> String {
+    public func renderMarkdown() -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale.currentLocale()
         dateFormatter.dateFormat = "MMMM ''yy"

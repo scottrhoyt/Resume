@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Education: MarkDownRenderable {
+public struct Education: MarkdownRenderable {
     let institution: String
     let major: String
     let minor: String

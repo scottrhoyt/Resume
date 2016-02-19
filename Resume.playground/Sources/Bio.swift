@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Bio: MarkDownRenderable {
+public struct Bio: MarkdownRenderable {
     let name: String
     let location: String
     let email: String

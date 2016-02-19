@@ -15,10 +15,10 @@ extension String {
     }
 }
 
-// MARK: - MarkDownRenderable
+// MARK: - MarkdownRenderable
 
-extension String: MarkDownRenderable {
-    public func renderMarkDown() -> String {
+extension String: MarkdownRenderable {
+    public func renderMarkdown() -> String {
         return self
     }
 }

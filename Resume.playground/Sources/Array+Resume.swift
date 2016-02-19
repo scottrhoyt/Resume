@@ -1,12 +1,12 @@
 import Foundation
 
-extension Array: MarkDownRenderable {
-    public func renderMarkDown() -> String {
+extension Array: MarkdownRenderable {
+    public func renderMarkdown() -> String {
         var markdowns = [""]
         // TODO: Use Map
         for item in self {
-            if let item = item as? MarkDownRenderable {
-                markdowns.append("* " + item.renderMarkDown())
+            if let item = item as? MarkdownRenderable {
+                markdowns.append("* " + item.renderMarkdown())
             } else {
                 markdowns.append("* " + Mirror(reflecting: item).description)
             }

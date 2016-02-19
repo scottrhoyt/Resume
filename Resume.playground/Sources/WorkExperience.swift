@@ -1,6 +1,6 @@
 import Foundation
 
-public struct WorkExperience: MarkDownRenderable {
+public struct WorkExperience: MarkdownRenderable {
     let companyName: String
     let title: String
     let startDate: NSDate

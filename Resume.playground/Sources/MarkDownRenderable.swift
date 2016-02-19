@@ -1,22 +1,22 @@
 import Foundation
 
-public protocol MarkDownRenderable {
-    func renderMarkDown() -> String
+public protocol MarkdownRenderable {
+    func renderMarkdown() -> String
 }
 
 // MARK: - Default Implementation
 
-public extension MarkDownRenderable {
-    public func renderMarkDown() -> String {
+public extension MarkdownRenderable {
+    public func renderMarkdown() -> String {
         var markdowns = [String]()
         let mirror = Mirror(reflecting: self)
         // TODO: Use Map
         for child in mirror.children {
             if
                 let label = child.label,
-                let value = child.value as? MarkDownRenderable
+                let value = child.value as? MarkdownRenderable
             {
-                markdowns.append("* **\(label.titleString())**: \(value.renderMarkDown())")
+                markdowns.append("* **\(label.titleString())**: \(value.renderMarkdown())")
             }
         }
         return markdowns.joinWithSeparator("\n")
