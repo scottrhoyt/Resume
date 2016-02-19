@@ -8,18 +8,18 @@ public protocol MarkdownRenderable {
 
 public extension MarkdownRenderable {
     public func renderMarkdown() -> String {
-        var markdowns = [String]()
         let mirror = Mirror(reflecting: self)
-        // TODO: Use Map
-        for child in mirror.children {
-            if
-                let label = child.label,
-                let value = child.value as? MarkdownRenderable
-            {
-                markdowns.append("* **\(label.titleString())**: \(value.renderMarkdown())")
-            }
-        }
-        return markdowns.joinWithSeparator("\n")
+        let result = mirror.children.filter {
+            $0.label != nil && $0.value is MarkdownRenderable
+        }.map {
+            ($0.label!, $0.value as! MarkdownRenderable)
+        }.map(keyValueString).joinWithSeparator("\n")
+        
+        return result
+    }
+    
+    private func keyValueString(keyValue: (String, MarkdownRenderable)) -> String {
+        return "\(keyValue.0.titleString().bold()): \(keyValue.1.renderMarkdown())".bullet()
     }
     
     private func indent(strings: [String], depth: Int) -> [String] {

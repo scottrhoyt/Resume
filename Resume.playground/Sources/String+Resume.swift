@@ -13,6 +13,19 @@ extension String {
     func titleString() -> String {
         return uncamel().capitalizedString
     }
+    
+    func bold() -> String {
+        return "**\(self)**"
+    }
+    
+    func bullet() -> String {
+        return "* \(self)"
+    }
+    
+    func heading(level: Int) -> String {
+        let mark = Repeat(count: level, repeatedValue: "#").joinWithSeparator("")
+        return "\(mark) \(self)"
+    }
 }
 
 // MARK: - MarkdownRenderable

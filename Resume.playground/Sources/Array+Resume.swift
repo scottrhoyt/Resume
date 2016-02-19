@@ -2,15 +2,15 @@ import Foundation
 
 extension Array: MarkdownRenderable {
     public func renderMarkdown() -> String {
-        var markdowns = [""]
-        // TODO: Use Map
-        for item in self {
-            if let item = item as? MarkdownRenderable {
-                markdowns.append("* " + item.renderMarkdown())
-            } else {
-                markdowns.append("* " + Mirror(reflecting: item).description)
-            }
+        let result = map(renderElement).joinWithSeparator("\n")
+        return result
+    }
+    
+    private func renderElement(element: Any) -> String {
+        if let element = element as? MarkdownRenderable {
+            return element.renderMarkdown().bullet()
+        } else {
+            return Mirror(reflecting: element).description.bullet()
         }
-        return markdowns.joinWithSeparator("\n")
     }
 }

@@ -18,6 +18,6 @@ public struct Resume: MarkdownRenderable {
     }
     
     public func renderMarkdown() -> String {
-        return sections.map{ "## \($0.title)\n\($0.body.renderMarkdown())" }.joinWithSeparator("\n\n")
+        return sections.map{ "\($0.title.heading(3))\n\($0.body.renderMarkdown())" }.joinWithSeparator("\n\n")
     }
 }
