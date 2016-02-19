@@ -7,10 +7,12 @@ extension Array: MarkdownRenderable {
     }
     
     private func renderElement(element: Any) -> String {
+        var result: String
         if let element = element as? MarkdownRenderable {
-            return element.renderMarkdown().bullet()
+            result = element.renderMarkdown()
         } else {
-            return Mirror(reflecting: element).description.bullet()
+            result = Mirror(reflecting: element).description
         }
+        return result.bullet()
     }
 }
