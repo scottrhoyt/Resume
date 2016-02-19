@@ -16,7 +16,7 @@ public extension MarkDownRenderable {
                 let label = child.label,
                 let value = child.value as? MarkDownRenderable
             {
-                markdowns.append("* _\(label.titleString())_: \(value.renderMarkDown())")
+                markdowns.append("* **\(label.titleString())**: \(value.renderMarkDown())")
             }
         }
         return markdowns.joinWithSeparator("\n")
