@@ -1,9 +1,9 @@
 import WebKit
 import XCPlayground
 
-//: # Resume
+//: ## Scott Hoyt
 
-//: ## Bio
+//: ### Bio
 
 let bio = Bio(
     name: "Scott Hoyt",
@@ -12,7 +12,7 @@ let bio = Bio(
     phoneNumber: "708.704.6804"
 )
 
-//: ## Education
+//: ### Education
 
 let uiuc = Education(
     institution: "University of Illinois Urbana Champaign",
@@ -20,10 +20,15 @@ let uiuc = Education(
     minor: "Business",
     graduationDate: { NSDateComponents(month: 6, year: 2006).date! }(),
     gpa: 3.92,
-    notables: []
+    notables: [
+        "Graduated with highest honors.",
+        "Campus Honors Program",
+        "Micron Scholar",
+        "Dean's list all 8 semesters"
+    ]
 )
 
-//: ## Work Experience
+//: ### Work Experience
 
 let ctc = WorkExperience(
     companyName: "Chicago Trading Company",
@@ -63,10 +68,10 @@ let entrepreneurImpactDay = WorkExperience(
     companyName: "Entrepreneur Impact Day",
     title: "Cofounder",
     startDate: { NSDateComponents(month: 6, year: 2014).date! }(),
-    endDate: { NSDateComponents(month: 10, year: 2015).date! }(),
+    endDate: NSDate.current(),
     notables: [
         "Started an event-based non-profit for bringing together talented startups with good causes.",
-        "Innaugural event connected 400 individuals from prominent LA startups and non-profits.",
+        "Inaugural event connected 400 individuals from prominent LA startups and non-profits.",
         "11 teams completed day-long projects resulting in a variety of actionable deliverables accross design, marketing, and technology."
     ]
 )
@@ -75,14 +80,15 @@ let diamondLabs = WorkExperience(
     companyName: "Diamond Labs",
     title: "Mobile Development Lead",
     startDate: { NSDateComponents(month: 10, year: 2015).date! }(),
-    endDate: { NSDateComponents(month: 2, year: 2016).date! }(),
+    endDate: NSDate.current(),
     notables: [
-        "Technical and strategic consulting for LA-based startus.",
+        "Technical and strategic consulting for LA-based startups.",
         "Built Card & Ink, a self-serve kiosk for buying and customizing high quality greeting card from a curated list of Etsy artists."
     ]
 )
 
-//: ## Interests
+//: ### Interests
+
 let interests = [
     "Flying",
     "Sailing",
@@ -93,6 +99,7 @@ let interests = [
     "Homebrewing"
 ]
 
+//: ### Output
 
 let resume = Resume(
     sections: [
@@ -100,7 +107,7 @@ let resume = Resume(
         ResumeSection(title: "Education", body: uiuc),
         ResumeSection(
             title: "Work Experience",
-            body: [ctc, blackEdge, wildOnion, entrepreneurImpactDay]),
+            body: [ctc, blackEdge, wildOnion, entrepreneurImpactDay, diamondLabs]),
         ResumeSection(title: "Interests", body: interests)
     ]
 )
@@ -108,14 +115,12 @@ let resume = Resume(
 let markdown = resume.renderMarkdown()
 print(markdown)
 
-//: # Output
-
 //: ## Markdown
 //NSBundle.mainBundle()
 //try markdown.writeToFile("Resume.md", atomically: true, encoding: NSUTF8StringEncoding)
 //
 var markdownRenderer = Markdown()
 let html = markdownRenderer.transform(resume.renderMarkdown())
-let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1024))
+let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1920))
 webView.loadHTMLString(html, baseURL: nil)
 XCPlaygroundPage.currentPage.liveView = webView
