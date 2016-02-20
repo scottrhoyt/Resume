@@ -6,7 +6,6 @@ import XCPlayground
 //: ### Bio
 
 let bio = Bio(
-    name: "Scott Hoyt",
     location: "Los Angeles, CA",
     email: "scottrhoyt@gmail.com",
     phoneNumber: "708.704.6804"
@@ -83,7 +82,7 @@ let diamondLabs = WorkExperience(
     endDate: NSDate.current(),
     notables: [
         "Technical and strategic consulting for LA-based startups.",
-        "Built Card & Ink, a self-serve kiosk for buying and customizing high quality greeting card from a curated list of Etsy artists."
+        "Built Card & Ink, a self-serve kiosk for buying and customizing high quality greeting cards from a curated list of Etsy artists."
     ]
 )
 
@@ -102,8 +101,9 @@ let interests = [
 //: ### Output
 
 let resume = Resume(
+    title: "Scott Hoyt",
     sections: [
-        ResumeSection(title: "Scott Hoyt", body: bio),
+        ResumeSection(body: bio),
         ResumeSection(title: "Education", body: uiuc),
         ResumeSection(
             title: "Work Experience",
@@ -121,6 +121,7 @@ print(markdown)
 //
 var markdownRenderer = Markdown()
 let html = markdownRenderer.transform(resume.renderMarkdown())
-let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1920))
-webView.loadHTMLString(html, baseURL: nil)
-XCPlaygroundPage.currentPage.liveView = webView
+print(html)
+//let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1920))
+//webView.loadHTMLString(html, baseURL: nil)
+//XCPlaygroundPage.currentPage.liveView = webView
