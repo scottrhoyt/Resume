@@ -110,13 +110,13 @@ let resume = Resume(
     ]
 )
 
-let markdown = resume.renderMarkdown(0)
+let markdown = resume.renderMarkdown()
 print(markdown)
 
 // Display html rendering of markup by loading in a WKWebview and waiting to finish playground execution
 // until `renderDelay` seconds after page finishes loading (to allow for rendering)
 var markdownRenderer = Markdown()
-let html = markdownRenderer.transform(resume.renderMarkdown(0))
+let html = markdownRenderer.transform(markdown)
 
 class PlaygroundStopper: NSObject, WKNavigationDelegate {
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {

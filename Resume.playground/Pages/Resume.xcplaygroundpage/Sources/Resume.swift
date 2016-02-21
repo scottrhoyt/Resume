@@ -25,7 +25,7 @@ public struct Resume: MarkdownRenderable {
         self.sections = sections
     }
     
-    public func renderMarkdown(depth: Int) -> String {
+    public func renderMarkdown(depth: Int = 0) -> String {
         let titleString = title.heading(2)
         let sectionsString = sections.map{ $0.renderMarkdown(0) }.joinWithSeparator("\n\n----\n")
         return [titleString, sectionsString].joinWithSeparator("\n\n")
