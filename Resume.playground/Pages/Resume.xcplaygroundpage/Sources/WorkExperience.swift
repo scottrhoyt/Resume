@@ -15,3 +15,9 @@ public struct WorkExperience: MarkdownRenderable {
         self.highlights = highlights
     }
 }
+
+extension WorkExperience: HasMarkdownTitleField {
+    func markdownTitleField() -> String {
+        return "companyName"
+    }
+}
