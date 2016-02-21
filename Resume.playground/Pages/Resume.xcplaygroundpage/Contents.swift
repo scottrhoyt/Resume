@@ -140,3 +140,4 @@ XCPlaygroundPage.currentPage.liveView = webView
 XCPlaygroundPage.currentPage.needsIndefiniteExecution
 
 webView.loadHTMLString(html, baseURL: nil)
+

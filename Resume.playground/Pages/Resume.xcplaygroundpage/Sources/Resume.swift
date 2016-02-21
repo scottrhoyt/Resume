@@ -11,7 +11,7 @@ public struct ResumeSection: MarkdownRenderable {
     
     public func renderMarkdown(depth: Int) -> String {
         let titleString = title?.heading(3) ?? ""
-        let titleSeparator = title != nil ? "\n" : ""
+        let titleSeparator = title != nil ? "\n\n" : ""
         return "\(titleString)\(titleSeparator)\(body.renderMarkdown(0))"
     }
 }

@@ -14,23 +14,23 @@ public extension MarkdownRenderable {
     public func renderMarkdown(depth: Int) -> String {
         let mirror = Mirror(reflecting: self)
         
+        // Form title if present
         let titleField = (self as? HasMarkdownTitleField)?.markdownTitleField()
-        var result = [mirror.titleString(titleField)]
+        let titleString = mirror.titleString(titleField)
+        let title = titleString.isEmpty && depth == 0 ? [] : [titleString]
         
-        result += mirror.children.filter {
+        let fields = mirror.children.filter {
             $0.label != nil && $0.value is MarkdownRenderable && $0.label != titleField
         }.map {
             ($0.label!, $0.value as! MarkdownRenderable, depth)
         }.map(keyValueString)
         
-        return indent(result, depth: depth).joinWithSeparator("\n")
+        return (title + indent(fields, depth: depth)).joinWithSeparator("\n")
     }
     
     private func keyValueString(keyValue: (String, MarkdownRenderable, Int)) -> String {
         return "\(keyValue.0.titleString().bold()): \(keyValue.1.renderMarkdown(keyValue.2 + 1))".bullet()
     }
-    
-
     
     func indent(strings: [String], depth: Int) -> [String] {
         let padding = Repeat(count: 2 * depth, repeatedValue: " ").joinWithSeparator("")
@@ -41,7 +41,7 @@ public extension MarkdownRenderable {
 
 // MARK: - Mirror
 
-extension Mirror {
+private extension Mirror {
     private func titleString(titleField: String?) -> String {
         guard let titleField = titleField else {
             return ""
