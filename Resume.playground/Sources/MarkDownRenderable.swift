@@ -15,7 +15,8 @@ public extension MarkdownRenderable {
             ($0.label!, $0.value as! MarkdownRenderable, depth)
         }.map(keyValueString)
         
-        return indent(result, depth: depth).joinWithSeparator("\n")
+        let indented = indent(result, depth: depth).joinWithSeparator("\n")
+        return depth == 0 ? indented : "\n" + indented
     }
     
     private func keyValueString(keyValue: (String, MarkdownRenderable, Int)) -> String {
