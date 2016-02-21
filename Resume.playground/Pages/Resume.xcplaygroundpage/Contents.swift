@@ -44,7 +44,7 @@ let blackEdge = WorkExperience(
     startDate: { NSDateComponents(month: 3, year: 2009).date! }(),
     endDate: { NSDateComponents(month: 3, year: 2011).date! }(),
     highlights: [
-        "Designed and developed proprietary risk and trading software. (Matlab, C#)",
+        "Designed and developed proprietary derivatives risk and trading software. (Matlab, C#)",
         "Grew company to 13 employees",
         "Best Year: $9M in profit. ~1800% Return on Capital."
     ]
