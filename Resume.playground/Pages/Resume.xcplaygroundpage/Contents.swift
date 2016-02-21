@@ -89,11 +89,11 @@ let diamondLabs = WorkExperience(
 let interests = [
     "Flying",
     "Sailing",
+    "Hiking",
     "Guitar",
     "Rock Climbing",
-    "Mountaineering",
-    "Hiking",
-    "Homebrewing"
+    "Homebrewing",
+    "Mountaineering"
 ]
 
 //: ## Output
