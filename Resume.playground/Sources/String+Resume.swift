@@ -26,6 +26,10 @@ extension String {
         let mark = Repeat(count: level, repeatedValue: "#").joinWithSeparator("")
         return "\(mark) \(self)"
     }
+    
+    func newLineIfNeeded(depth: Int) -> String {
+        return depth == 0 ? self : "\n" + self
+    }
 }
 
 // MARK: - MarkdownRenderable

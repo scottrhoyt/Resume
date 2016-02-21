@@ -3,8 +3,7 @@ import Foundation
 extension Array: MarkdownRenderable {
     public func renderMarkdown(depth: Int) -> String {
         let result = map{ renderElement($0, depth: depth) }
-        let indented = indent(result, depth: depth).joinWithSeparator("\n")
-        return depth == 0 ? indented : "\n" + indented
+        return indent(result, depth: depth).joinWithSeparator("\n").newLineIfNeeded(depth)
     }
     
     private func renderElement(element: Any, depth: Int) -> String {
