@@ -19,7 +19,7 @@ extension String {
     }
     
     func bullet() -> String {
-        return "* \(self)"
+        return "+ \(self)"
     }
     
     func heading(level: Int) -> String {

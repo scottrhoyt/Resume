@@ -46,9 +46,9 @@ let blackEdge = WorkExperience(
     startDate: { NSDateComponents(month: 3, year: 2009).date! }(),
     endDate: { NSDateComponents(month: 3, year: 2011).date! }(),
     notables: [
-        "Designed and developed risk and trading software. (Matlab, C#)",
+        "Designed and developed proprietary risk and trading software. (Matlab, C#)",
         "Grew company to 13 employees",
-        "Best Year: $9M in profit. ~1800% Return on Capital"
+        "Best Year: $9M in profit. ~1800% Return on Capital."
     ]
 )
 
@@ -59,7 +59,7 @@ let wildOnion = WorkExperience(
     endDate: { NSDateComponents(month: 10, year: 2015).date! }(),
     notables: [
         "Technical and strategic consulting for LA-based startups.",
-        "Built Card & Ink, a self-serve kiosk for buying and customizing high quality greeting card from a curated list of Etsy artists."
+        "Built Card & Ink, a self-serve kiosk for buying and customizing high quality greeting card from a curated list of Etsy artists. (Objective-C, C)"
     ]
 )
 
@@ -81,8 +81,8 @@ let diamondLabs = WorkExperience(
     startDate: { NSDateComponents(month: 10, year: 2015).date! }(),
     endDate: NSDate.current(),
     notables: [
-        "Technical and strategic consulting for LA-based startups.",
-        "Built Card & Ink, a self-serve kiosk for buying and customizing high quality greeting cards from a curated list of Etsy artists."
+        "Digital Agency building products for startups and Fortune 500 companies.",
+        "Lead mobile development as a whole and directly contribute to iOS projects. (Swift, Objective-C)"
     ]
 )
 
@@ -115,13 +115,30 @@ let resume = Resume(
 let markdown = resume.renderMarkdown(0)
 print(markdown)
 
-//: ## Markdown
-//NSBundle.mainBundle()
-//try markdown.writeToFile("Resume.md", atomically: true, encoding: NSUTF8StringEncoding)
-//
+// Display html rendering of markup by loading in a WKWebview and waiting to finish playground execution
+// until `renderDelay` seconds after page finishes loading (to allow for rendering)
 var markdownRenderer = Markdown()
 let html = markdownRenderer.transform(resume.renderMarkdown(0))
-print(html)
-//let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1920))
-//webView.loadHTMLString(html, baseURL: nil)
-//XCPlaygroundPage.currentPage.liveView = webView
+
+class PlaygroundStopper: NSObject, WKNavigationDelegate {
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        let renderDelay = 1.5
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(renderDelay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue()) {
+                XCPlaygroundPage.currentPage.finishExecution()
+        }
+    }
+}
+
+let stopper = PlaygroundStopper()
+let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1600))
+webView.navigationDelegate = stopper
+
+XCPlaygroundPage.currentPage.liveView = webView
+XCPlaygroundPage.currentPage.needsIndefiniteExecution
+
+webView.loadHTMLString(html, baseURL: nil)
