@@ -6,14 +6,14 @@ public struct Education: MarkdownRenderable {
     let minor: String
     let graduationDate: NSDate
     let gpa: Double
-    let notables: [String]
+    let highlights: [String]
     
-    public init(institution: String, major: String, minor: String, graduationDate: NSDate, gpa: Double, notables: [String]) {
+    public init(institution: String, major: String, minor: String, graduationDate: NSDate, gpa: Double, highlights: [String]) {
         self.institution = institution
         self.major = major
         self.minor = minor
         self.graduationDate = graduationDate
         self.gpa = gpa
-        self.notables = notables
+        self.highlights = highlights
     }
 }

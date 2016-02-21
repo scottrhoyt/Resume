@@ -17,7 +17,7 @@ let uiuc = Education(
     minor: "Business",
     graduationDate: { NSDateComponents(month: 6, year: 2006).date! }(),
     gpa: 3.92,
-    notables: [
+    highlights: [
         "Graduated with highest honors.",
         "Campus Honors Program",
         "Micron Scholar",
@@ -32,7 +32,7 @@ let ctc = WorkExperience(
     title: "Senior Financial Engineer",
     startDate: { NSDateComponents(month: 7, year: 2006).date! }(),
     endDate: { NSDateComponents(month: 3, year: 2009).date! }(),
-    notables: [
+    highlights: [
         "Designed and developed GPGPU interest rate model for a new relative value trade. (Matlab, C, C#)",
         "Lead financial engineering for interest rate products."
     ]
@@ -43,7 +43,7 @@ let blackEdge = WorkExperience(
     title: "Cofounder",
     startDate: { NSDateComponents(month: 3, year: 2009).date! }(),
     endDate: { NSDateComponents(month: 3, year: 2011).date! }(),
-    notables: [
+    highlights: [
         "Designed and developed proprietary risk and trading software. (Matlab, C#)",
         "Grew company to 13 employees",
         "Best Year: $9M in profit. ~1800% Return on Capital."
@@ -55,7 +55,7 @@ let wildOnion = WorkExperience(
     title: "Cofounder",
     startDate: { NSDateComponents(month: 11, year: 2013).date! }(),
     endDate: { NSDateComponents(month: 10, year: 2015).date! }(),
-    notables: [
+    highlights: [
         "Technical and strategic consulting for LA-based startups.",
         "Built Card & Ink, a self-serve kiosk for buying and customizing high quality greeting card from a curated list of Etsy artists. (Objective-C, C)"
     ]
@@ -66,7 +66,7 @@ let entrepreneurImpactDay = WorkExperience(
     title: "Cofounder",
     startDate: { NSDateComponents(month: 6, year: 2014).date! }(),
     endDate: NSDate.current(),
-    notables: [
+    highlights: [
         "Started an event-based non-profit for bringing together talented startups with good causes.",
         "Inaugural event connected 400 individuals from prominent LA startups and non-profits.",
         "11 teams completed day-long projects resulting in a variety of actionable deliverables accross design, marketing, and technology."
@@ -78,7 +78,7 @@ let diamondLabs = WorkExperience(
     title: "Mobile Development Lead",
     startDate: { NSDateComponents(month: 10, year: 2015).date! }(),
     endDate: NSDate.current(),
-    notables: [
+    highlights: [
         "Digital Agency building products for startups and Fortune 500 companies.",
         "Lead mobile development as a whole and directly contribute to iOS projects. (Swift, Objective-C)"
     ]
