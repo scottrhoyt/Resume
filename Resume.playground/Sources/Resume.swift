@@ -9,10 +9,10 @@ public struct ResumeSection: MarkdownRenderable {
         self.body = body
     }
     
-    public func renderMarkdown() -> String {
+    public func renderMarkdown(depth: Int) -> String {
         let titleString = title?.heading(3) ?? ""
         let titleSeparator = title != nil ? "\n" : ""
-        return "\(titleString)\(titleSeparator)\(body.renderMarkdown())"
+        return "\(titleString)\(titleSeparator)\(body.renderMarkdown(0))"
     }
 }
 
@@ -25,9 +25,9 @@ public struct Resume: MarkdownRenderable {
         self.sections = sections
     }
     
-    public func renderMarkdown() -> String {
+    public func renderMarkdown(depth: Int) -> String {
         let titleString = title.heading(2)
-        let sectionsString = sections.map{ $0.renderMarkdown() }.joinWithSeparator("\n\n")
+        let sectionsString = sections.map{ $0.renderMarkdown(0) }.joinWithSeparator("\n\n")
         return [titleString, sectionsString].joinWithSeparator("\n\n")
     }
 }

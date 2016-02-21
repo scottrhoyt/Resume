@@ -5,7 +5,7 @@ extension NSDate: MarkdownRenderable {
         return NSDate.distantFuture()
     }
     
-    public func renderMarkdown() -> String {
+    public func renderMarkdown(depth: Int) -> String {
         if self == NSDate.current() {
             return "Current"
         } else {

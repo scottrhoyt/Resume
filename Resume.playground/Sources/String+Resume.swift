@@ -31,13 +31,13 @@ extension String {
 // MARK: - MarkdownRenderable
 
 extension String: MarkdownRenderable {
-    public func renderMarkdown() -> String {
+    public func renderMarkdown(depth: Int) -> String {
         return self
     }
 }
 
 extension Double: MarkdownRenderable {
-    public func renderMarkdown() -> String {
+    public func renderMarkdown(depth: Int) -> String {
         return self.description
     }
 }

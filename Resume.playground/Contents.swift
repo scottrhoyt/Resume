@@ -112,7 +112,7 @@ let resume = Resume(
     ]
 )
 
-let markdown = resume.renderMarkdown()
+let markdown = resume.renderMarkdown(0)
 print(markdown)
 
 //: ## Markdown
@@ -120,7 +120,7 @@ print(markdown)
 //try markdown.writeToFile("Resume.md", atomically: true, encoding: NSUTF8StringEncoding)
 //
 var markdownRenderer = Markdown()
-let html = markdownRenderer.transform(resume.renderMarkdown())
+let html = markdownRenderer.transform(resume.renderMarkdown(0))
 print(html)
 //let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1920))
 //webView.loadHTMLString(html, baseURL: nil)
