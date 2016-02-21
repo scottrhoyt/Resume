@@ -75,7 +75,7 @@ let entrepreneurImpactDay = WorkExperience(
 
 let diamondLabs = WorkExperience(
     companyName: "Diamond Labs",
-    title: "Mobile Development Lead",
+    title: "iOS Development Lead",
     startDate: { NSDateComponents(month: 10, year: 2015).date! }(),
     endDate: NSDate.current(),
     highlights: [
