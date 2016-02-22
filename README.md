@@ -5,11 +5,15 @@ A fun place to generate Scott Hoyt's resume.
 ### Usage
 
 * Open up `Resume.playgound`.
+* You can use the project navigator to navigate between these instructions and
+  the Resume page.
 * Running the `Resume` playground page will print my resume in markdown to the
   console.
 * Optionally open up the assistant editor and select the timeline view to see
   a sample rendering of the markdown to HTML. (Provided by [Markingbird](https://github.com/kristopherjohnson/Markingbird))
 * The pre-rendered output is available in the `Output` directory.
+* The source code used to generate the markdown is in the `Sources` directory
+  under `Resume.xcplaygroundpage`
 
 ### Implementation Notes
 
