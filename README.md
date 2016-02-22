@@ -11,7 +11,7 @@ A fun place to generate Scott Hoyt's resume.
   console.
 * Optionally open up the assistant editor and select the timeline view to see
   a sample rendering of the markdown to HTML. (Provided by [Markingbird](https://github.com/kristopherjohnson/Markingbird))
-* The pre-rendered output is available in the `Output` directory.
+* The pre-generated output is available as `Scott Hoyt Resume.md`.
 * The source code used to generate the markdown is in the `Sources` directory
   under `Resume.xcplaygroundpage`
 
@@ -29,7 +29,7 @@ These are some of the techniques utilized:
 
 * Due to the sandboxed nature of Playgrounds, I cannot write the file to an
   easily accessible location. You can use the file `Scott Hoyt Resume.md` in the
-  `Output` directory, or copy and paste the markdown from the playground
+  root directory, or copy and paste the markdown from the playground
   console.
 * Some markdown-to-html renderers have difficulty with 3 depths of nested
   unordered lists (`Markingbird` being one). The generated markdown has been
@@ -37,4 +37,4 @@ These are some of the techniques utilized:
 
 ## tl;dr
 
-* Use `Scott Hoyt Resume.md` in the `Output` directory.
+* Use `Scott Hoyt Resume.md` in the root directory.
