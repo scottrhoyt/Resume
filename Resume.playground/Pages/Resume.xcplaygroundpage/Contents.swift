@@ -85,7 +85,7 @@ let diamondLabs = WorkExperience(
     ]
 )
 
-//: Development skills
+//: ### Development skills
 
 let developmentSkills = [
     "Swift",
