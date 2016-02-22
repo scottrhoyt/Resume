@@ -61,6 +61,25 @@
     + Lead mobile development as a whole and directly contribute to iOS projects. (Swift, Objective-C)
 
 ----
+### Development Skills
+
++ Swift
++ Objective-C
++ C#
++ C
++ Matlab
++ C++ (intermediate)
++ Javascript (intermediate)
++ Ruby (intermediate)
+
+----
+### Other Experience
+
++ Partner in restaurants
++ Investor in private aviation
++ Investor in tech startups
+
+----
 ### Interests
 
 + Flying

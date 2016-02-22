@@ -85,6 +85,27 @@ let diamondLabs = WorkExperience(
     ]
 )
 
+//: Development skills
+
+let developmentSkills = [
+    "Swift",
+    "Objective-C",
+    "C#",
+    "C",
+    "Matlab",
+    "C++ (intermediate)",
+    "Javascript (intermediate)",
+    "Ruby (intermediate)"
+]
+
+//: ### Other Experience
+
+let otherExperience = [
+    "Partner in restaurants",
+    "Investor in private aviation",
+    "Investor in tech startups"
+]
+
 //: ### Interests
 
 let interests = [
@@ -107,6 +128,8 @@ let resume = Resume(
         ResumeSection(
             title: "Work Experience",
             body: [ctc, blackEdge, wildOnion, entrepreneurImpactDay, diamondLabs]),
+        ResumeSection(title: "Development Skills", body: developmentSkills),
+        ResumeSection(title: "Other Experience", body: otherExperience),
         ResumeSection(title: "Interests", body: interests)
     ]
 )
@@ -114,31 +137,9 @@ let resume = Resume(
 let markdown = resume.renderMarkdown()
 print(markdown)
 
-// Display html rendering of markup by loading in a WKWebview and waiting to finish playground execution
-// until `renderDelay` seconds after page finishes loading (to allow for rendering)
 var markdownRenderer = Markdown()
 let html = markdownRenderer.transform(markdown)
-
-class PlaygroundStopper: NSObject, WKNavigationDelegate {
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        let renderDelay = 4.0
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(renderDelay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue()) {
-                XCPlaygroundPage.currentPage.finishExecution()
-        }
-    }
-}
-
-let stopper = PlaygroundStopper()
-let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1600))
-webView.navigationDelegate = stopper
+let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 728, height: 1750))
 
 XCPlaygroundPage.currentPage.liveView = webView
-XCPlaygroundPage.currentPage.needsIndefiniteExecution
-
 webView.loadHTMLString(html, baseURL: nil)
-

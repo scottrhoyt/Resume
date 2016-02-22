@@ -20,7 +20,6 @@ These are some of the techniques utilized:
 * Protocol Orientated Programming
 * Recursion
 * Retroactive Modeling via extensions
-* Simple GCD to stop playground execution after `WKWebView` has time to render
 
 ### Known Issues
 
@@ -28,8 +27,6 @@ These are some of the techniques utilized:
   easily accessible location. You can use the file `Scott Hoyt Resume.md` in the
   `Output` directory, or copy and paste the markdown from the playground
   console.
-* Playgrounds are still a bit buggy and the `WKWebView` may not display
-  correctly. In this case, rerun the playground page.
 * Some markdown-to-html renderers have difficulty with 3 depths of nested
   unordered lists (`Markingbird` being one). The generated markdown has been
   tested successfully in Atom and on GitHub.
