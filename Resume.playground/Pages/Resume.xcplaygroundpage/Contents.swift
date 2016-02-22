@@ -18,10 +18,10 @@ let uiuc = Education(
     graduationDate: { NSDateComponents(month: 6, year: 2006).date! }(),
     gpa: 3.92,
     highlights: [
-        "Graduated with highest honors.",
+        "Graduated with highest honors",
         "Campus Honors Program",
         "Micron Scholar",
-        "Dean's list all 8 semesters"
+        "Dean's list every semester"
     ]
 )
 
@@ -69,7 +69,7 @@ let entrepreneurImpactDay = WorkExperience(
     highlights: [
         "Started an event-based non-profit for bringing together talented startups with good causes.",
         "Inaugural event connected 400 individuals from prominent LA startups and non-profits.",
-        "11 teams completed day-long projects resulting in a variety of actionable deliverables accross design, marketing, and technology."
+        "11 teams completed day-long projects resulting in actionable deliverables accross design, marketing, and technology."
     ]
 )
 
@@ -80,6 +80,7 @@ let diamondLabs = WorkExperience(
     endDate: NSDate.current(),
     highlights: [
         "Digital Agency building products for startups and Fortune 500 companies.",
+        "Lead product engineer.",
         "Lead mobile development as a whole and directly contribute to iOS projects. (Swift, Objective-C)"
     ]
 )

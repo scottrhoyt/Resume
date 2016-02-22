@@ -9,6 +9,7 @@ A fun place to generate Scott Hoyt's resume.
   console.
 * Optionally open up the assistant editor and select the timeline view to see
   a sample rendering of the markdown to HTML. (Provided by [Markingbird](https://github.com/kristopherjohnson/Markingbird))
+* The pre-rendered output is available in the `Output` directory.
 
 ### Implementation Notes
 
@@ -30,7 +31,7 @@ These are some of the techniques utilized:
 * Playgrounds are still a bit buggy and the `WKWebView` may not display
   correctly. In this case, rerun the playground page.
 * Some markdown-to-html renderers have difficulty with 3 depths of nested
-  unordered lists (`Markingbird` being one.) The generated markdown has been
+  unordered lists (`Markingbird` being one). The generated markdown has been
   tested successfully in Atom and on GitHub.
 
 ## tl;dr

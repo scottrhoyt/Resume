@@ -9,6 +9,7 @@
 //: console.
 //: * Optionally open up the assistant editor and select the timeline view to see
 //: a sample rendering of the markdown to HTML. (Provided by [Markingbird](https://github.com/kristopherjohnson/Markingbird))
+//: * The pre-rendered output is available in the `Output` directory.
 //: 
 //: ### Implementation Notes
 //: 
@@ -36,5 +37,5 @@
 //: ## tl;dr
 //: 
 //: * Use `Scott Hoyt Resume.md` in the `Output` directory.
-
+//: 
 //: [Next Page](@next)
